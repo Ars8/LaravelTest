@@ -4,71 +4,16 @@
 <div class="container">
     <h1 align="center">My Gallery</h1>
     <div class="row">
+        @foreach($imagesInview as $image)
         <div class="col-md-3 gallery-item">
             <div>
-                <img src="/image.jpg" alt="" class="img-thumbnail">
+                <img src="/{{$image->image}}" alt="" class="img-thumbnail">
             </div>
-            <button type="button" class="btn btn-info my-button">Info</button>
-            <button type="button" class="btn btn-warning my-button">Warning</button>
-            <button type="button" class="btn btn-danger my-button">Danger</button>
+            <a href="/show/{{$image->id}}" class="btn btn-info my-button">Show</a>
+            <a href="/edit/{{$image->id}}" class="btn btn-warning my-button">Edit</a>
+            <a href="/delete/{{$image->id}}" onclick="return confirm('Are you sure you want to delete this')" class="btn btn-danger my-button">Delete</a>
         </div>
-        <div class="col-md-3 gallery-item">
-            <div>
-                <img src="/image.jpg" alt="" class="img-thumbnail">
-            </div>
-            <button type="button" class="btn btn-info my-button">Info</button>
-            <button type="button" class="btn btn-warning my-button">Warning</button>
-            <button type="button" class="btn btn-danger my-button">Danger</button>
-        </div>
-        <div class="col-md-3 gallery-item">
-            <div>
-                <img src="/image.jpg" alt="" class="img-thumbnail">
-            </div>
-            <button type="button" class="btn btn-info my-button">Info</button>
-            <button type="button" class="btn btn-warning my-button">Warning</button>
-            <button type="button" class="btn btn-danger my-button">Danger</button>
-        </div>
-        <div class="col-md-3 gallery-item">
-            <div>
-                <img src="/image.jpg" alt="" class="img-thumbnail">
-            </div>
-            <button type="button" class="btn btn-info my-button">Info</button>
-            <button type="button" class="btn btn-warning my-button">Warning</button>
-            <button type="button" class="btn btn-danger my-button">Danger</button>
-        </div>
-
-        <div class="col-md-3 gallery-item">
-            <div>
-                <img src="/image.jpg" alt="" class="img-thumbnail">
-            </div>
-            <button type="button" class="btn btn-info my-button">Info</button>
-            <button type="button" class="btn btn-warning my-button">Warning</button>
-            <button type="button" class="btn btn-danger my-button">Danger</button>
-        </div>
-        <div class="col-md-3 gallery-item">
-            <div>
-                <img src="/image.jpg" alt="" class="img-thumbnail">
-            </div>
-            <button type="button" class="btn btn-info my-button">Info</button>
-            <button type="button" class="btn btn-warning my-button">Warning</button>
-            <button type="button" class="btn btn-danger my-button">Danger</button>
-        </div>
-        <div class="col-md-3 gallery-item">
-            <div>
-                <img src="/image.jpg" alt="" class="img-thumbnail">
-            </div>
-            <button type="button" class="btn btn-info my-button">Info</button>
-            <button type="button" class="btn btn-warning my-button">Warning</button>
-            <button type="button" class="btn btn-danger my-button">Danger</button>
-        </div>
-        <div class="col-md-3 gallery-item">
-            <div>
-                <img src="/image.jpg" alt="" class="img-thumbnail">
-            </div>
-            <button type="button" class="btn btn-info my-button">Info</button>
-            <button type="button" class="btn btn-warning my-button">Warning</button>
-            <button type="button" class="btn btn-danger my-button">Danger</button>
-        </div>
+        @endforeach
     </div>
 </div>
 @endsection

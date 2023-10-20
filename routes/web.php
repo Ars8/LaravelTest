@@ -1,6 +1,9 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,22 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\ImagesController@index');
 
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/about', 'App\Http\Controllers\HomeController@about');
 
-Route::get('/create', function() {
-    return view('create');
-});
+Route::get('/create', 'App\Http\Controllers\ImagesController@create');
 
-Route::get('/show', function() {
-    return view('show');
-});
+Route::post('/store', 'App\Http\Controllers\ImagesController@store');
 
-Route::get('/edit', function() {
-    return view('edit');
-});
+Route::get('/show/{id}', 'App\Http\Controllers\ImagesController@show');
+
+Route::get('/edit/{id}', 'App\Http\Controllers\ImagesController@edit');
+
+Route::post('/update/{id}', 'App\Http\Controllers\ImagesController@update');
+
+Route::get('/delete/{id}', 'App\Http\Controllers\ImagesController@delete');
